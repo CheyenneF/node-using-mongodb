@@ -16,8 +16,8 @@ app.get('/', (req, res) =>
 app.listen(PORT, () => 
     console.log(`Your server is running on port ${PORT}`)
 );
-
-mongoose.connect('mongodb://localhost:27017/productsdb',
+mongoose.Promise = global.Promise;
+await mongoose.connect('mongodb://localhost/productsdb',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -26,15 +26,3 @@ mongoose.connect('mongodb://localhost:27017/productsdb',
     }).catch((error) => {
         console.log('error', error);
     })
-
-/*
-mongoose.connect('mongodb://localhost:27017/productsdb',
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }).then(() => {
-        console.log('conncection successful');
-    }).catch((error) => {
-        console.log("something went wrong");
-    })
-*/
