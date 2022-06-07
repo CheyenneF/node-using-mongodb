@@ -47,3 +47,15 @@ export const updateProduct = (req, res) => {
     });
 }
 
+export const deleteProduct = (req, res) => {
+    
+    Product.deleteOne({_id: req.params.ProductID}, (err, Product) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json('successfully deleted product');
+
+    });
+}
+
+
