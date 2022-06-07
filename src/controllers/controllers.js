@@ -23,3 +23,14 @@ export const getProducts = (req, res) => {
         res.json(Product);
     });
 }
+
+export const getProductWithID = (req, res) => {
+    
+    Product.findById(req.params.ProductID, (err, Product) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(Product);
+
+    });
+}
