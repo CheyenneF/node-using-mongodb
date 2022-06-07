@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import { route } from 'src/routes/routes';
 
 const app = express();
 const PORT = 4000;
@@ -26,3 +27,5 @@ await mongoose.connect('mongodb://localhost/productsdb',
     }).catch((error) => {
         console.log('error', error);
     })
+
+route(app);

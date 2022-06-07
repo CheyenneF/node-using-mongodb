@@ -1,3 +1,4 @@
+import res from 'express/lib/response';
 import mongoose from 'mongoose';
 import { ProductSchema } from '../models/model';
 
@@ -13,4 +14,14 @@ export const addnewProduct = (req, res) => {
         res.json(Product);
     });
 }
+
+export function getProducts(res,req) {
+    Product.find(err, Product);
+    
+    if(err){
+        res.send(err);
+    }
+    
+    res.json(Product);
+};
 
