@@ -15,13 +15,11 @@ export const addnewProduct = (req, res) => {
     });
 }
 
-export function getProducts(res,req) {
-    Product.find(err, Product);
-    
-    if(err){
-        res.send(err);
-    }
-    
-    res.json(Product);
-};
-
+export const getProducts = (req, res) => {
+    Product.find({}, (err, Product) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(Product);
+    });
+}
