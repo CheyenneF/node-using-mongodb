@@ -5,7 +5,7 @@ import { getProducts } from '../controllers/controllers';
 const routes = (app) => {
 
     app.route('/products');
-    app.route.endpoint(getProducts);
+    app.route.get(getProducts);
     app.routes.post(addnewProduct);
     
     
